@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <title>Youtube</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 16px;
+        font-family: '微軟正黑體';
+        box-sizing: border-box;
+        }
+        
+        #top {
+            width: 100%-16px;
+            height: 56px;
+            background: white;
+            padding-left: 16px;
+            padding-right: 16px;
+            font-size: 14px;
+            position: fixed;
+            z-index: 1;
+        }
+        #top table {
+            width: 100%;
+            height: 56px;
+        }
+        #top td {
+            width: 25%;
+            vertical-align: middle;           
+        }
+        .tw{
+            position: relative;
+            bottom: 13px;
+            right: -2px;
+        }
+        .top-find{
+            height: 32px;
+            position: relative;
+            bottom: 6px;
+        }
+        .top-btn{
+           width:65px;
+           height:32px;
+           background-image: url(./icon/search_black_24dp.svg);
+           background-repeat: no-repeat;
+           background-position: 50% 50%;
+           position: relative;
+           top: 4px;
+           margin-right: 16px;
+        }
+
+        .top-1{
+            margin-left: 8px;
+            margin-right: 24px;
+        }
+        .top-2{
+            margin-right: 24px;
+            position: relative;
+            top: 8px;
+        }
+        .top-3{
+            margin-right: 24px;
+            position: relative;
+            top: 8px;
+        }
+        #left{
+            width: 239px;
+            height: 100%;
+            float: left;
+            overflow: scroll;
+            position: fixed;
+            /* position: relative;*/
+            top: 56px;
+        }
+        #right{
+            width: 1664px;
+            height: auto;
+            /* background: sandybrown; */
+            float: right;
+            position: relative;
+            top: 56px;
+        }
+        .login-1{
+            width: 80px;
+            height: 40px;
+            border: 1px solid rgb(6, 95, 212);
+            color: rgb(6, 95, 212);
+            display: inline-block;
+            text-align: left;
+        }
+        .login-1 img {
+            position: relative;
+            top: 6px;
+            margin-left: 8px;
+            margin-right: 4px;
+        }
+        .login-2{
+            width: 93px;
+            height: 36px;
+            border: 1px solid rgb(6, 95, 212);
+            color: rgb(6, 95, 212);           
+        }
+        .login-2 img {
+            position: relative;
+            top: 6px;
+            margin-left: 8px;
+            margin-right: 4px;
+        }
+        
+        .menu{
+            width: 100%;
+            height: 40px;
+            padding-left: 24px;
+            padding-right: 24px;
+            font-size: 14px;              
+            display: inline-block;            
+            position: relative; 
+            text-decoration: none;
+        }
+        
+        .no-padding{
+            padding: 0;
+        }
+        .menu img {
+            margin-right: 24px;
+            position: relative;
+            top: 8px;
+        }
+
+        .menu:hover{
+            background: #AAA;
+        }        
+        
+        .menu-1 {
+            width: 100%;
+            height: 145px;
+            padding: 12px 0px;
+            border-bottom: 1px solid rgb(230,230,230);
+            text-decoration: none;          
+        }
+        .menu-2 {
+            width: 100%;
+            height: 104px;
+            padding: 12px 0px;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        .menu-3{
+            width: 100%;
+            height: 121px;
+            padding: 16px 24px;
+            font-size: 14px;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        .menu-4{
+            width: 100%;
+            height: 291px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        .menu-5{
+            width: 100%;
+            height: 64px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        
+        .menu-6{
+            width: 100%;
+            height: 131px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        .menu-text{
+            font-size: 14px;
+            padding: 8px 24px;
+        }
+        .menu-7{
+            width: 100%;
+            height: 184px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgb(230,230,230);
+        }
+        .advertising{
+            width: 100%;
+            height: 260px;
+            background: #000;
+            color: white;
+            padding-top: 35px;
+            padding-left: 88px;
+            padding-right: 296px;
+        }
+        .advertising img {
+            width: auto;
+            height: 28px;
+            margin-bottom: 8px;
+        }
+        .ad-text{
+            width: auto;
+            height: 92px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .ad-btn{
+            padding: 12px;
+            border: 1px solid white;
+            display: inline;
+        }
+        .ad-close{
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            color: #000;
+            background: rgb(230,230,230);
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+
+        .content{
+            width: 100%;
+            height: 100%;
+            padding: 50px 80px;            
+        }
+        .iframe{
+            width: 23%;
+            height: auto;
+            /* background: wheat; */
+            display: inline-block;
+            margin-bottom: 40px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        .iframe img{
+            width: 100%;
+            height: 194.578px;
+        }
+        #iframe-icon{
+            width: 36px;
+            height: 36px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            margin-right: 10px;
+            float: left;
+            border-radius: 50%;
+        }
+        .iframe-text{
+            margin: 10px 0px;
+        }
+        .iframe-text-1{
+            font-size: 10px;
+            color: rgb(80, 80, 80);
+            margin: 5px 0;
+        }
+        .iframe-text-2{
+            font-size: 10px;
+            color: rgb(80, 80, 80);
+        }
+    </style> 
+</head>
+<body>
+    <div id="top">
+        <table>
+            <tr>
+                <td><img src="./icon/menu_black_24dp.svg" class="top-1"><img src="./icon/2.png" alt="YouTube 首頁" title="YouTube 首頁"><span class="tw">TW</span></td>
+                <td align="center"><p><input type="text" name="" id="" value=" 搜尋" size="60" class="top-find"><input type="button" class="top-btn"><img src="./icon/mic_black_24dp.svg"></p></td>
+                <td align="right"><img src="./icon/apps_black_24dp.svg" class="top-2""><img src="./icon/more_vert_black_24dp.svg" class="top-3"><span class="login-1"><img src="./icon/account_circle_black_24dp.svg">登入</span></td>
+            </tr>
+        </table>
+    </div>
+    <div id="left">
+        <div class="menu-1">
+            <div class="menu"><img src="./icon/home_black_24dp.svg"><a href="./index.html">首頁</a></div>
+            <div class="menu"><img src="./icon/explore_black_24dp.svg">探索</div>
+            <div class="menu"><img src="./icon/subscriptions_black_24dp.svg">訂閱內容</div>
+        </div>        
+        <div class="menu-2">
+            <div class="menu"><img src="./icon/video_library_black_24dp.svg">媒體庫</div>
+            <div class="menu"><img src="./icon/history_black_24dp.svg">觀看紀錄</div>
+        </div>
+        <div class="menu-3">
+            <div class="menu no-padding">登入帳戶即可對影片表示喜歡、發布留言及訂閱頻道。</div>
+            <div class="login-2"><img src="./icon/account_circle_black_24dp.svg">登入</div>
+        </div>
+        <div class="menu-4">
+            <div class="menu-text">YOUTUBE 精選</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">音樂</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">體育</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">遊戲</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">新聞</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">直播</div>
+            <div class="menu"><img src="./icon/play_circle_black_24dp.svg">360 度影片</div>
+        </div>
+        <div class="menu-5">
+            <div class="menu"><img src="./icon/add_circle_black_24dp.svg">瀏覽頻道</div>
+        </div>        
+        <div class="menu-6">
+            <div class="menu-text">更多 YOUTUBE 功能</div>
+            <div class="menu"><img src="./icon/smart_display_black_24dp.svg">YouTube Premium</div>
+            <div class="menu"><img src="./icon/sensors_black_24dp.svg">直播</div>
+        </div>
+        <div class="menu-7">
+            <div class="menu"><img src="./icon/settings_black_24dp.svg">設定</div>
+            <div class="menu"><img src="./icon/flag_black_24dp.svg">檢舉紀錄</div>
+            <div class="menu"><img src="./icon/help_black_24dp.svg">說明</div>
+            <div class="menu"><img src="./icon/feedback_black_24dp.svg">提供意見</div>
+        </div>
+        <div class="menu">
+            <p> &copy; 2021 Google LLC </p>
+        </div>
+    </div>
+    <div id="right">
+        <div class="advertising">
+            <img src="https://www.gstatic.com/youtube/img/promos/growth/1263f05576c9f137587330f92e03e0a725f426fd9d40d28a8942692dc8f6b210_640x48.png">
+            <div class="ad-text">探索專屬你獨特風格的音樂</div>
+            <div class="ad-btn">立即訂閱</div>
+            <div class="ad-close">X</div>
+        </div>
+        <div class="content">
+            <div class="iframe">
+                <img src="./icon/滅火器/1945.jpg">
+                <img src="./icon/滅火器/logo.jpg" id="iframe-icon"><p class="iframe-text">滅火器 Fire EX.－一九四五  Official Music Video</p>
+                <p class="iframe-text-1">滅火器 Fire EX.</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/滅火器/滅火器Fire Ex.－〈十二月的妳 A One and A Two〉 Official Music Video.jpg">
+                <img src="./icon/滅火器/logo.jpg" id="iframe-icon"><p class="iframe-text">滅火器Fire Ex.－十二月的妳  Official Music Video</p>
+                <p class="iframe-text-1">滅火器 Fire EX.</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/滅火器/keepongoing.jpg">
+                <img src="./icon/滅火器/logo.jpg" id="iframe-icon"><p class="iframe-text">滅火器 Fire EX. －繼續向前行 Keep On Going</p>
+                <p class="iframe-text-1">滅火器 Fire EX.</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/滅火器/曾經瘋狂.jpg">                
+                <img src="./icon/滅火器/logo.jpg" id="iframe-icon"><p class="iframe-text">滅火器 Fire EX. 曾經瘋狂 Chen 52 Lyrics Video</p>
+                <p class="iframe-text-1">滅火器 Fire EX.</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>            
+            <div class="iframe">
+                <img src="./icon/草東/No Party For Cao Dong 草東沒有派對​ - 頂樓 (Rooftop).jpg">
+                <img src="./icon/草東/logo.jpg" id="iframe-icon"><p class="iframe-text">No Party For Cao Dong 草東沒有派對​ - 頂樓 (Rooftop)</p>
+                <p class="iframe-text-1">No Party For Cao Dong 草東沒有派對</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/草東/草東沒有派對 No Party For Cao Dong - 山海 Wayfarer 【Official Music Video】.jpg">
+                <img src="./icon/草東/logo.jpg" id="iframe-icon"><p class="iframe-text">草東沒有派對 No Party For Cao Dong - 山海 Wayfarer 【Official Music Video】</p>
+                <p class="iframe-text-1">No Party For Cao Dong 草東沒有派對</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/草東/爛泥.jpg">
+                <img src="./icon/草東/logo.jpg" id="iframe-icon"><p class="iframe-text">草東沒有派對 No Party For Cao Dong - 爛泥 Wimpish 【Official Music Video】</p>
+                <p class="iframe-text-1">No Party For Cao Dong 草東沒有派對</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/草東/還願.jpg">
+                <img src="./icon/草東/logo.jpg" id="iframe-icon"><p class="iframe-text">草東沒有派對 No Party For Cao Dong - 還願 Devotion 【Official Music Video】</p>
+                <p class="iframe-text-1">No Party For Cao Dong 草東沒有派對</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h1 style="font-size: 22px;">發燒影片</h1>
+            <br>
+            <div class="iframe">
+                <img src="./icon/康士坦/康士坦的變化球 KST－美好的事可不可以發生在我身上 Lucky As You （Official Music Video）.jpg">
+                <img src="./icon/康士坦/logo.jpg" id="iframe-icon"><p class="iframe-text">康士坦的變化球 KST－美好的事可不可以發生在我身上（Official Music Video）</p>
+                <p class="iframe-text-1">康士坦的變化球 KST</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/康士坦/康士坦的變化球 KST－ 對不起我做不到答應了你的事 Hoax （Official Music Video）.jpg">
+                <img src="./icon/康士坦/logo.jpg" id="iframe-icon"><p class="iframe-text">康士坦的變化球 KST－對不起我做不到答應了你的事（Official Music Video）</p>
+                <p class="iframe-text-1">康士坦的變化球 KST</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/康士坦/康士坦的變化球 KST－更迭 Alternate Moments （Official Music Video）.jpg">
+                <img src="./icon/康士坦/logo.jpg" id="iframe-icon"><p class="iframe-text">康士坦的變化球 KST－更迭（Official Music Video）</p>
+                <p class="iframe-text-1">康士坦的變化球 KST</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/康士坦/康士坦的變化球【在你死後才想起曾經答應陪你去散步】官方正式版MV.jpg">
+                <img src="./icon/康士坦/logo.jpg" id="iframe-icon"><p class="iframe-text">康士坦的變化球 KST－在你死後才想起曾經答應陪你去散步（Official Music Video）</p>
+                <p class="iframe-text-1">康士坦的變化球 KST</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/血肉/Flesh Juicer 血肉果汁機『GOLDEN太子BRO』01 - GOLDEN TAIZI BRO（Official Music Video）.jpg">
+                <img src="./icon/血肉/logo.jpg" id="iframe-icon"><p class="iframe-text">Flesh Juicer 血肉果汁機 - GOLDEN TAIZI BRO（Official Music Video）</p>
+                <p class="iframe-text-1">FLESH JUICER TV</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/血肉/Flesh Juicer 血肉果汁機 『GOLDEN太子BRO』- 03 - 我是一隻瘋狗, 爽喔! Ft. BAT（Official Music Video）.jpg">
+                <img src="./icon/血肉/logo.jpg" id="iframe-icon"><p class="iframe-text">Flesh Juicer 血肉果汁機 - 我是一隻瘋狗, 爽喔!（Official Music Video）</p>
+                <p class="iframe-text-1">FLESH JUICER TV</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/血肉/Flesh Juicer 血肉果汁機『深海童話』02打開太陽.jpg">
+                <img src="./icon/血肉/logo.jpg" id="iframe-icon"><p class="iframe-text">Flesh Juicer 血肉果汁機 - 打開太陽（Official Music Video）</p>
+                <p class="iframe-text-1">FLESH JUICER TV</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/血肉/Flesh Juicer 血肉果汁機『深海童話』10關閉太陽.jpg">
+                <img src="./icon/血肉/logo.jpg" id="iframe-icon"><p class="iframe-text">Flesh Juicer 血肉果汁機 - 關閉太陽（Official Music Video）</p>
+                <p class="iframe-text-1">FLESH JUICER TV</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <hr>
+            <br>
+            <br>
+            <div class="iframe">
+                <img src="./icon/美秀/美秀集團 Amazing Show－電火王 King of Light (.aka KOL) 【Official Music Video】.jpg">
+                <img src="./icon/美秀/logo.jpg" id="iframe-icon"><p class="iframe-text">美秀集團 Amazing Show－電火王 King of Light【Official Music Video】</p>
+                <p class="iframe-text-1">美秀集團 Bisiugroup</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/美秀/美秀集團 Amazing Show－擋一根 Chill Out【Official Music Video】.jpg">
+                <img src="./icon/美秀/logo.jpg" id="iframe-icon"><p class="iframe-text">美秀集團 Amazing Show－擋一根 Chill Out【Official Music Video】</p>
+                <p class="iframe-text-1">美秀集團 Bisiugroup</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/美秀/美秀集團 Amazing Show－捲菸【Official Music Video】.jpg">
+                <img src="./icon/美秀/logo.jpg" id="iframe-icon"><p class="iframe-text">美秀集團 Amazing Show－捲菸【Official Music Video】</p>
+                <p class="iframe-text-1">美秀集團 Bisiugroup</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+            <div class="iframe">
+                <img src="./icon/美秀/美秀集團 Amazing Show－做事人 Workers【Official Music Video】× 電視劇《做工的人》插曲.jpg">
+                <img src="./icon/美秀/logo.jpg" id="iframe-icon"><p class="iframe-text">美秀集團 Amazing Show－做事人 Workers【Official Music Video】</p>
+                <p class="iframe-text-1">美秀集團 Bisiugroup</p>
+                <p class="iframe-text-2">觀看次數：6666萬次•1年前</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
